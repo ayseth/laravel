@@ -29,8 +29,13 @@ Route::get('/post/{id}', function ($id) {
     return "this is post number ". $id;
 });
 
-Route::get('/post/{id}/{name}', function ($id, $name) {
-    return "this is post number ". $id . " " . $name;
-});
+//nickname
+
+Route::get('/admin/posts/example', array('as'=>'admin.home' ,function () {
+    $url = route('admin.home');   //grab the url from top and save it in $url
+    							  //route is laravel helper function
+
+    return "this url is ". $url;
+}));
 
 
