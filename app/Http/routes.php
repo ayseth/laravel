@@ -40,6 +40,6 @@
 // }));
 
 
-Route::get('/post', 'PostsController@index'); //index is the method in the controller PostController
+Route::get('/post/{id}', 'PostsController@index'); //index is the method in the controller PostController
 
 
