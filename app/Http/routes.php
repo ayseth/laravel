@@ -42,4 +42,8 @@
 
 Route::get('/post/{id}', 'PostsController@index'); //index is the method in the controller PostController
 
+Route::resource('posts', 'PostsController'); //has all functions automatically & methods
+
+
+
 
