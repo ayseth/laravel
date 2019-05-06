@@ -11,31 +11,35 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
-Route::get('/about', function () {
-    return "Hi about page";
-});
+// Route::get('/about', function () {
+//     return "Hi about page";
+// });
 
 
-Route::get('/contact', function () {
-    return "Hi contact page";
-});
+// Route::get('/contact', function () {
+//     return "Hi contact page";
+// });
 
-Route::get('/post/{id}', function ($id) {
-    return "this is post number ". $id;
-});
+// Route::get('/post/{id}', function ($id) {
+//     return "this is post number ". $id;
+// });
 
-//nickname
 
-Route::get('/admin/posts/example', array('as'=>'admin.home' ,function () {
-    $url = route('admin.home');   //grab the url from top and save it in $url
-    							  //route is laravel helper function
+// //route nickname
 
-    return "this url is ". $url;
-}));
+// Route::get('/admin/posts/example', array('as'=>'admin.home' ,function () {
+//     $url = route('admin.home');   //grab the url from top and save it in $url
+//     							  //route is laravel helper function
+
+//     return "this url is ". $url; //instead of passing it to functon, we can assign the big url to var 
+// }));
+
+
+Route::get('/post', 'PostsController@index'); //index is the method in the controller PostController
 
 
