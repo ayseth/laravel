@@ -46,7 +46,7 @@ Route::resource('posts', 'PostsController'); //has all functions automatically &
 
 Route::get('/contact', 'PostsController@contact');
 
-Route::get('/post/{id}', 'PostsController@show_post');
+Route::get('/post/{id}/{name}/{password}', 'PostsController@show_post');
 
 
 

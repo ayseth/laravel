@@ -94,8 +94,10 @@ class PostsController extends Controller
 
     }
 
-    public function show_post($id)
+    public function show_post($id, $name, $password)
     {
-    	return view('post')->with('id',$id); //with = open post view and pass that data
+    	// return view('post')->with('id',$id); //with = open post view and pass that data
+
+    	return view('post', compact('id', 'name', 'password')); //compact = convert this 'id'  var into the var passed at the top  $id and pass into view 
     }
 }
