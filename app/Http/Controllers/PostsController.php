@@ -93,4 +93,9 @@ class PostsController extends Controller
     	return view('contact');
 
     }
+
+    public function show_post($id)
+    {
+    	return view('post')->with('id',$id); //with = open post view and pass that data
+    }
 }
