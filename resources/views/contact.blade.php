@@ -21,6 +21,6 @@
 
 @section('footer')
 
-<script>
+<!-- <script>
 	alert('Hello visitor')
-</script>
+</script> -->
