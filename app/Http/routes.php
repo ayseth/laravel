@@ -53,18 +53,28 @@
 
 // Route::get('/insert', function(){
 // 	DB::insert('insert into posts(title, content) values(?, ?)', ['PHP with laravel', 'PHP laravel is interesting and really good highly recommended to start learnng them ']);
+// });
 
-Route::get('/read', function() {
+// Route::get('/read', function() {
 
-	$results = DB::select('select * from posts where id = ?', [1]);
+// 	$results = DB::select('select * from posts where id = ?', [1]);
 
-	foreach($results as $post)
-	{
-		return $post->title;
-	}
+// 	foreach($results as $post)
+// 	{
+// 		return $post->title;
+// 	}
 
 
-});
+// });
+
+
+// Route::get('/update', function() {
+
+// $updated = DB::update('update posts set title = "Update title" where id = ?', [1]);
+
+// return $updated;
+
+// });
 
 
 
