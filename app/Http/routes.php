@@ -45,8 +45,24 @@
 
 // Route::get('/post/{id}/{name}/{password}', 'PostsController@show_post');
 
-Route::get('/insert', function(){
-	DB::insert('insert into posts(title, content) values(?, ?)', ['PHP with laravel', 'PHP laravel is interesting and really good highly recommended to start learnng them ']);
+/*
+|--------------------------------------------------------------------------
+| Database RAW SQL Queries
+|--------------------------------------------------------------------------
+*/
+
+// Route::get('/insert', function(){
+// 	DB::insert('insert into posts(title, content) values(?, ?)', ['PHP with laravel', 'PHP laravel is interesting and really good highly recommended to start learnng them ']);
+
+Route::get('/read', function() {
+
+	$results = DB::select('select * from posts where id = ?', [1]);
+
+	foreach($results as $post)
+	{
+		return $post->title;
+	}
+
 
 });
 
