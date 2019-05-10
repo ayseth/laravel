@@ -13,9 +13,9 @@
 
  
 
-Route::get('/about', function () {
-    return "Hi about page";
-});
+// Route::get('/about', function () {
+//     return "Hi about page";
+// });
 
 
 // Route::get('/contact', function () {
@@ -39,11 +39,16 @@ Route::get('/about', function () {
 
 //Route::get('/post/{id}', 'PostsController@index'); //index is the method in the controller PostController
 
-Route::resource('posts', 'PostsController'); //has all functions automatically & methods
+// Route::resource('posts', 'PostsController'); //has all functions automatically & methods
 
-Route::get('/contact', 'PostsController@contact');
+// Route::get('/contact', 'PostsController@contact');
 
-Route::get('/post/{id}/{name}/{password}', 'PostsController@show_post');
+// Route::get('/post/{id}/{name}/{password}', 'PostsController@show_post');
+
+Route::get('/insert', function(){
+	DB::insert('insert into posts(title, content) values(?, ?)', ['PHP with laravel', 'PHP laravel is interesting and really good highly recommended to start learnng them ']);
+
+});
 
 
 
