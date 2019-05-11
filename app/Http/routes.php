@@ -1,5 +1,6 @@
 <?php
 
+use App\Post;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -77,10 +78,34 @@
 // });
 
 
-Route::get('/delete', function() {
+// Route::get('/delete', function() {
 
-$deleted = DB::delete('delete from posts where id = ?', [1]);
+// $deleted = DB::delete('delete from posts where id = ?', [1]);
 
-return $deleted;
+// return $deleted;
 
+// });
+
+
+/*
+|--------------------------------------------------------------------------
+| Eloquent ORM
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/read', function(){
+
+$posts = Post::all();   //Pulls all record and save in $posts
+
+foreach ($posts as $post) {
+	return $post->title;
+}
+
+});
+
+Route::get('/find', function(){
+
+$post = Post::find(4);   //Pulls all record and save in $posts
+
+return $post->title;
 });
