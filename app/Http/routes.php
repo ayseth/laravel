@@ -164,3 +164,13 @@ use App\Post;
 
 // });
 
+/************************************************************
+			cREATE DATA AND CONIG MASS assignment
+*************************************************************/
+Route::get('/create', function(){
+
+Post::create(['title'=>'create methos','content'=>'I\'m learning mass assignment']);        //this will cause an exception if not created 4fillable in post.php model and not allow you to put data as it thinks it's not safe
+
+
+
+});
