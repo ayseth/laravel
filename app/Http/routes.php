@@ -184,9 +184,28 @@ use App\Post;
 *************************************************************/
 
 
-Route::get('/update', function() {
-Post::where('id', 4)->where('is_admin', 0)->update(['title'=>'NEW PHP', 'content'=>'I love my ...IDK']);
-	# code...
+// Route::get('/update', function() {
+// Post::where('id', 4)->where('is_admin', 0)->update(['title'=>'NEW PHP', 'content'=>'I love my ...IDK']);
+// 	# code...
 
+
+// });
+
+/************************************************************
+						DELETE
+*************************************************************/
+//
+// Route::get('/delete', function(){
+
+// $post = Post::find(4);
+
+// $post->delete();
+// });
+
+Route::get('/delete2', function(){
+
+Post::destroy(6,7);
+
+ //Post::where('is_admin', 0)->delete();      //Also works
 
 });
