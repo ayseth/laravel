@@ -52,9 +52,9 @@ use App\Post;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/insert', function(){
-	DB::insert('insert into posts(title, content) values(?, ?)', ['PHP life', 'PHP laravel is interesting and really good highly recommended to start learnng them ']);
-});
+// Route::get('/insert', function(){
+// 	DB::insert('insert into posts(title, content) values(?, ?)', ['PHP life', 'PHP laravel is interesting and really good highly recommended to start learnng them ']);
+// });
 
 // Route::get('/read', function() {
 
@@ -110,9 +110,19 @@ Route::get('/insert', function(){
 // return $post->title;
 // });
 
-Route::get('/findwhere', function() {
-$posts = Post::where('id', 4)->orderby('id', 'desc')->take(1)->get();
+// Route::get('/findwhere', function() {
+// $posts = Post::where('id', 4)->orderby('id', 'desc')->take(1)->get();
 
-return $posts;
+// return $posts;
 
+// });
+
+// Route::get('/findmore', function(){
+// 	$posts = Post::findOrFail(1);
+// return $posts;
+
+
+
+Route::get('/findmore2', function(){
+$posts = Post::where('users_count', '<', 50)->firstOrFail();
 });
