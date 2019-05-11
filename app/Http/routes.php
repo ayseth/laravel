@@ -93,6 +93,9 @@ use App\Post;
 |--------------------------------------------------------------------------
 */
 
+/************************************************************
+						READ
+*************************************************************/
 // Route::get('/read', function(){
 
 // $posts = Post::all();   //Pulls all record and save in $posts
@@ -123,6 +126,41 @@ use App\Post;
 
 
 
-Route::get('/findmore2', function(){
-$posts = Post::where('users_count', '<', 50)->firstOrFail();
-});
+// Route::get('/findmore2', function(){
+// $posts = Post::where('users_count', '<', 50)->firstOrFail();
+// });
+
+/************************************************************
+						INSERT
+*************************************************************/
+
+// Route::get('/basicinsert', function() {
+
+// $post = new Post;
+
+// $post->title = 'new Eloquent title insert';
+// $post->content = 'Content for the next post eally cool haha';
+
+// $post->save();          //insert or overwrite if only one present
+
+
+// });
+
+
+/************************************************************
+						UPDATE
+*************************************************************/
+
+
+// Route::get('/basicinsert2', function() {
+
+// $post = Post::find(4);
+
+// $post->title = 'new Eloquent title insert 2 or update';
+// $post->content = 'XAMPP is meant only for development purposes. It has certain configuration settings that make it easy to develop';
+
+// $post->save();          //insert or overwrite if only one present
+
+
+// });
+
