@@ -52,9 +52,9 @@ use App\Post;
 |--------------------------------------------------------------------------
 */
 
-// Route::get('/insert', function(){
-// 	DB::insert('insert into posts(title, content) values(?, ?)', ['PHP with laravel', 'PHP laravel is interesting and really good highly recommended to start learnng them ']);
-// });
+Route::get('/insert', function(){
+	DB::insert('insert into posts(title, content) values(?, ?)', ['PHP life', 'PHP laravel is interesting and really good highly recommended to start learnng them ']);
+});
 
 // Route::get('/read', function() {
 
@@ -93,19 +93,26 @@ use App\Post;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/read', function(){
+// Route::get('/read', function(){
 
-$posts = Post::all();   //Pulls all record and save in $posts
+// $posts = Post::all();   //Pulls all record and save in $posts
 
-foreach ($posts as $post) {
-	return $post->title;
-}
+// foreach ($posts as $post) {
+// 	return $post->title;
+// }
 
-});
+// });
 
-Route::get('/find', function(){
+// Route::get('/find', function(){
 
-$post = Post::find(4);   //Pulls all record and save in $posts
+// $post = Post::find(4);   //Pulls all record and save in $posts
 
-return $post->title;
+// return $post->title;
+// });
+
+Route::get('/findwhere', function() {
+$posts = Post::where('id', 4)->orderby('id', 'desc')->take(1)->get();
+
+return $posts;
+
 });
