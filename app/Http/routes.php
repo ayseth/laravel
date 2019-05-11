@@ -146,10 +146,11 @@ use App\Post;
 
 // });
 
-
 /************************************************************
-						UPDATE
+						SAVE
 *************************************************************/
+
+
 
 
 // Route::get('/basicinsert2', function() {
@@ -164,13 +165,28 @@ use App\Post;
 
 // });
 
+
+
+
 /************************************************************
 			cREATE DATA AND CONIG MASS assignment
 *************************************************************/
-Route::get('/create', function(){
+// Route::get('/create', function(){
 
-Post::create(['title'=>'create methos','content'=>'I\'m learning mass assignment']);        //this will cause an exception if not created 4fillable in post.php model and not allow you to put data as it thinks it's not safe
+// Post::create(['title'=>'create methos','content'=>'I\'m learning mass assignment']);        //this will cause an exception if not created 4fillable in post.php model and not allow you to put data as it thinks it's not safe
 
+
+
+// });
+
+/************************************************************
+						UPDATE
+*************************************************************/
+
+
+Route::get('/update', function() {
+Post::where('id', 4)->where('is_admin', 0)->update(['title'=>'NEW PHP', 'content'=>'I love my ...IDK']);
+	# code...
 
 
 });
