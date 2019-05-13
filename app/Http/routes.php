@@ -48,15 +48,18 @@ use App\Post;
 
 // Route::get('/post/{id}/{name}/{password}', 'PostsController@show_post');
 
-/*
-|--------------------------------------------------------------------------
-| Database RAW SQL Queries
-|--------------------------------------------------------------------------
-*/
+
+/***********************************************************
+				Database RAW SQL Queries
+************************************************************/
+
+/**********  INSERT  *************/
 
 // Route::get('/insert', function(){
 // 	DB::insert('insert into posts(title, content) values(?, ?)', ['PHP life', 'PHP laravel is interesting and really good highly recommended to start learnng them ']);
 // });
+
+/**********  READ  *************/
 
 // Route::get('/read', function() {
 
@@ -70,6 +73,7 @@ use App\Post;
 
 // });
 
+/**********  UPDATE  *************/
 
 // Route::get('/update', function() {
 
@@ -79,6 +83,7 @@ use App\Post;
 
 // });
 
+/**********  DELETE  *************/
 
 // Route::get('/delete', function() {
 
@@ -214,15 +219,19 @@ use App\Post;
 
 // });
 
+/************************************************************
+						SOFT DELETE
+*************************************************************/
 
-Route::get('/softdelete', function(){
 
-Post::find(9)->delete();
-});
+// Route::get('/softdelete', function(){
 
-Route::get('/readsofdelte', function(){
+// Post::find(8)->delete();
+// });
 
-/**Pull and return, but empty as the items are soft deleted***/
+// Route::get('/readsofdelte', function(){
+
+// *Pull and return, but empty as the items are soft deleted**
 // $post = Post::find(1);
 
 // return $post;
@@ -236,8 +245,16 @@ Route::get('/readsofdelte', function(){
 /**************************************************/
 
 /**********Displays the item method 2*************/
-$post = Post::onlyTrashed()->where('is_admin', 0)->get();
+// $post = Post::onlyTrashed()->where('is_admin', 0)->get();
 
-return $post;
+// return $post;
+// });
+/****************************************************/
+
+/************************************************************
+						RESTORE SOFT DELETE
+*************************************************************/
+Route::get('/restore', function(){
+
+Post::withTrashed()->whereNotNull('deleted_at')->restore();
 });
-/****************************************************88/
