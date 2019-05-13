@@ -173,13 +173,13 @@ use App\Post;
 /************************************************************
 			cREATE DATA AND CONIG MASS assignment
 *************************************************************/
-Route::get('/create', function(){
+// Route::get('/create', function(){
 
-Post::create(['title'=>'create methos','content'=>'I\'m learning mass assignment']);        //this will cause an exception if not created 4fillable in post.php model and not allow you to put data as it thinks it's not safe
+// Post::create(['title'=>'create methos','content'=>'I\'m learning mass assignment']);        //this will cause an exception if not created 4fillable in post.php model and not allow you to put data as it thinks it's not safe
 
 
 
-});
+// });
 
 /************************************************************
 						UPDATE
@@ -217,5 +217,27 @@ Post::create(['title'=>'create methos','content'=>'I\'m learning mass assignment
 
 Route::get('/softdelete', function(){
 
-Post::find(8)->delete();
+Post::find(9)->delete();
 });
+
+Route::get('/readsofdelte', function(){
+
+/**Pull and return, but empty as the items are soft deleted***/
+// $post = Post::find(1);
+
+// return $post;
+/************************************************/
+
+/**********Displays the item method 1*************/
+// $post = Post::withTrashed()->where('is_admin', 0)->get();
+
+// return $post;
+// });
+/**************************************************/
+
+/**********Displays the item method 2*************/
+$post = Post::onlyTrashed()->where('is_admin', 0)->get();
+
+return $post;
+});
+/****************************************************88/
