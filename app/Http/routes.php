@@ -28,7 +28,9 @@ use App\Post;
 // });
 
 
-// //route nickname
+/******************************************************
+						route nickname
+*******************************************************/
 
 // Route::get('/admin/posts/example', array('as'=>'admin.home' ,function () {
 //     $url = route('admin.home');   //grab the url from top and save it in $url
@@ -171,13 +173,13 @@ use App\Post;
 /************************************************************
 			cREATE DATA AND CONIG MASS assignment
 *************************************************************/
-// Route::get('/create', function(){
+Route::get('/create', function(){
 
-// Post::create(['title'=>'create methos','content'=>'I\'m learning mass assignment']);        //this will cause an exception if not created 4fillable in post.php model and not allow you to put data as it thinks it's not safe
+Post::create(['title'=>'create methos','content'=>'I\'m learning mass assignment']);        //this will cause an exception if not created 4fillable in post.php model and not allow you to put data as it thinks it's not safe
 
 
 
-// });
+});
 
 /************************************************************
 						UPDATE
@@ -202,10 +204,18 @@ use App\Post;
 // $post->delete();
 // });
 
-Route::get('/delete2', function(){
 
-Post::destroy(6,7);
 
- //Post::where('is_admin', 0)->delete();      //Also works
+// Route::get('/delete2', function(){
 
+// Post::destroy(6,7);
+
+//  //Post::where('is_admin', 0)->delete();      //Also works
+
+// });
+
+
+Route::get('/softdelete', function(){
+
+Post::find(8)->delete();
 });
