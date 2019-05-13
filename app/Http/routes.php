@@ -254,7 +254,24 @@ use App\Post;
 /************************************************************
 						RESTORE SOFT DELETE
 *************************************************************/
-Route::get('/restore', function(){
+// Route::get('/restore', function(){
 
-Post::withTrashed()->whereNotNull('deleted_at')->restore();
+// Post::withTrashed()->whereNotNull('deleted_at')->restore();
+// });
+
+/************************************************************
+				PERMANENT DELETE SOFT DELETE
+*************************************************************/
+
+Route::get('/forceDelete', function(){
+
+
+/**********method 1*************/
+
+// Post::withTrashed()->whereNotNull('deleted_at')->forceDelete();
+
+
+/**********method 2*************/
+
+Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
 });
