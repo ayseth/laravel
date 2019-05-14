@@ -24,4 +24,10 @@ protected $dates = ['deleted_at'];         //to treat this col as a timestamp co
 
 
 	];
+
+public function user(){
+	return $this->belongsTo('App\User'); //to pull user from db, inverse relationship
+}
+
+
 }

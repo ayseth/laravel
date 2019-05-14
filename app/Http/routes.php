@@ -283,10 +283,19 @@ use App\User;
 
 /*********  ONE TO ONE RELATIONSHIP ************/
 
-Route::get('/user/{id}/post', function($id){
+// Route::get('/user/{id}/post', function($id){
 
-//return User::find($id)->post; //will return the whole post rec related to id
+// //return User::find($id)->post; //will return the whole post rec related to id
 
-return User::find($id)->post->title; //wil return title
+// return User::find($id)->post->title; //wil return title
 
+// });
+
+/*********  INVERSE RELATIONSHIP ************/
+
+
+Route::get('/post/{id}/user', function($id) {
+
+
+	return Post::find($id)->user->name;
 });
