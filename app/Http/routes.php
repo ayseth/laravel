@@ -1,6 +1,7 @@
 <?php
 
 use App\Post;
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -263,7 +264,7 @@ use App\Post;
 				PERMANENT DELETE SOFT DELETE
 *************************************************************/
 
-Route::get('/forceDelete', function(){
+// Route::get('/forceDelete', function(){
 
 
 /**********method 1*************/
@@ -273,5 +274,19 @@ Route::get('/forceDelete', function(){
 
 /**********method 2*************/
 
-Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
+// Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
+// });
+
+/************************************************************
+				ELOQUENT RELATIONSHIPS
+*************************************************************/
+
+/*********  ONE TO ONE RELATIONSHIP ************/
+
+Route::get('/user/{id}/post', function($id){
+
+//return User::find($id)->post; //will return the whole post rec related to id
+
+return User::find($id)->post->title; //wil return title
+
 });

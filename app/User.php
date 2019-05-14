@@ -23,4 +23,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+ public function post(){
+
+    return $this->hasOne('App\Post');  //go to posts table and look for 'user_id' col automatically by default, if a different column is to be specified or named diff, it should be a second parameter as "('App\Post', 'the_user_id')"
+}
+
 }
