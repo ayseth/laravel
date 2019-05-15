@@ -302,14 +302,32 @@ use App\User;
 
 /*********  ONE TO MANY RELATIONSHIP ************/
 
-Route::get('/posts', function(){
+// Route::get('/posts', function(){
 
-	$user = User::find(1);
+// 	$user = User::find(1);
 
-	foreach ($user->posts as $post) {
-		echo $post->title . "<br>";  //return would return only 1 title, echo loops all titles
+// 	foreach ($user->posts as $post) {
+// 		echo $post->title . "<br>";  //return would return only 1 title, echo loops all titles
 		
-	}
+// 	}
 
 
+// });
+
+/*********  MANY TO MANY RELATIONSHIP ************/
+
+Route::get('/user/{id}/role', function($id){
+
+$user = User::find($id);
+foreach($user->roles as $role){
+	return $role->name;
+
+}
+});
+
+Route::get('/user/{id}/rol', function($id){
+
+$user = User::find($id)->roles()->orderBy('id', 'desc')->get(); //return complete role
+
+return $user;
 });
