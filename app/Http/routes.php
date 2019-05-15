@@ -2,6 +2,7 @@
 
 use App\Post;
 use App\User;
+use App\Country;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -334,11 +335,21 @@ use App\User;
 
 /********* Accessing the intermediate table / pivot ************/
 
-Route::get('/user/pivot', function(){
-	$user = User::find(1);
+// Route::get('/user/pivot', function(){
+// 	$user = User::find(1);
 
-	foreach($user->roles as $role){
-		echo $role->pivot->created_at;
-	}
+// 	foreach($user->roles as $role){
+// 		echo $role->pivot->created_at;
+// 	}
 
+// });
+
+/********* Many Relations ************/
+Route::get('/user/country', function(){
+
+$country = Country::find(2);
+
+foreach($country->posts as $post){
+	return $post->title;
+}
 });
