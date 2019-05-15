@@ -294,8 +294,22 @@ use App\User;
 /*********  INVERSE RELATIONSHIP ************/
 
 
-Route::get('/post/{id}/user', function($id) {
+// Route::get('/post/{id}/user', function($id) {
 
 
-	return Post::find($id)->user->name;
+// 	return Post::find($id)->user->name;
+// });
+
+/*********  ONE TO MANY RELATIONSHIP ************/
+
+Route::get('/posts', function(){
+
+	$user = User::find(1);
+
+	foreach ($user->posts as $post) {
+		echo $post->title . "<br>";  //return would return only 1 title, echo loops all titles
+		
+	}
+
+
 });
