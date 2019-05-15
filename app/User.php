@@ -35,7 +35,10 @@ public function posts(){
 }
 
 public function roles(){
-    return $this->belongsToMany('App\Role');
+
+    return $this->belongsToMany('App\Role')->withPivot('created_at');    //'withPivot  --  let's the model know that we need to pull this intermediate table
+    
+  //  return $this->belongsToMany('App\Role', 'user_role', 'user_id', 'role_id');               //this format incase of a different table name than default,2nd para-> table name, 3rd para-> users table foreign key, 4th para-> role table foreign key
 }
 
 }

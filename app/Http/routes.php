@@ -316,18 +316,29 @@ use App\User;
 
 /*********  MANY TO MANY RELATIONSHIP ************/
 
-Route::get('/user/{id}/role', function($id){
+// Route::get('/user/{id}/role', function($id){
 
-$user = User::find($id);
-foreach($user->roles as $role){
-	return $role->name;
+// $user = User::find($id);
+// foreach($user->roles as $role){
+// 	return $role->name;
 
-}
-});
+// }
+// });
 
-Route::get('/user/{id}/rol', function($id){
+// Route::get('/user/{id}/rol', function($id){
 
-$user = User::find($id)->roles()->orderBy('id', 'desc')->get(); //return complete role
+// $user = User::find($id)->roles()->orderBy('id', 'desc')->get(); //return complete role
 
-return $user;
+// return $user;
+// });
+
+/********* Accessing the intermediate table / pivot ************/
+
+Route::get('/user/pivot', function(){
+	$user = User::find(1);
+
+	foreach($user->roles as $role){
+		echo $role->pivot->created_at;
+	}
+
 });
