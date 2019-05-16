@@ -403,13 +403,13 @@ use App\Tag;
 
 /************ Polymorphic Many To Many inverse****************/
 
-Route::get('/tag/post', function(){
+// Route::get('/tag/post', function(){
 
-$tag = Tag::find(2);
-foreach($tag->posts as $post){
-	echo $post->title;
+// $tag = Tag::find(2);
+// foreach($tag->posts as $post){
+// 	echo $post->title;
 
-}
+// }
 
-});
+// });
 
