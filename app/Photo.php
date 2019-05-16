@@ -9,7 +9,7 @@ class Photo extends Model
     //
     public function imageable(){
 
-    	return $this->morhpTo();
+    	return $this->morphTo();
 
     }
 }
