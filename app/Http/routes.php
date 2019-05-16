@@ -4,6 +4,7 @@ use App\Post;
 use App\User;
 use App\Country;
 use App\Photo;
+use App\Tag;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -390,13 +391,25 @@ use App\Photo;
 
 /************ Polymorphic Many To Many****************/
 
-Route::get('/post/tag', function(){
+// Route::get('/post/tag', function(){
 
-	$post = Post::find(1);
+// 	$post = Post::find(1);
 
-	foreach($post->tags as $tag){
-		echo $tag->name;
-	}
+// 	foreach($post->tags as $tag){
+// 		echo $tag->name;
+// 	}
+// });
+
+
+/************ Polymorphic Many To Many inverse****************/
+
+Route::get('/tag/post', function(){
+
+$tag = Tag::find(2);
+foreach($tag->posts as $post){
+	echo $post->title;
+
+}
+
 });
-
 

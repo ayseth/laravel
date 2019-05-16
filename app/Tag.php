@@ -9,13 +9,13 @@ class Tag extends Model
     //
     public function posts(){
 
-    	return $this->morphByMany('App\Post', 'tagable');
+    	return $this->morphedByMany('App\Post', 'tagable');
 
     }
 
 public function videos(){
 
-    	return $this->morphByMany('App\Video', 'tagable');
+    	return $this->morphedByMany('App\Video', 'tagable');
 
     }
 }
