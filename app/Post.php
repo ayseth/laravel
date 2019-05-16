@@ -29,5 +29,9 @@ public function user(){
 	return $this->belongsTo('App\User'); //to pull user from db, inverse relationship
 }
 
+public function photos() {
+	return $this->morphMany('App\Photo', 'imageable');
+}
+
 
 }

@@ -344,12 +344,37 @@ use App\Country;
 
 // });
 
-/********* Many Relations ************/
-Route::get('/user/country', function(){
+/************ Many Relations ****************/
 
-$country = Country::find(2);
+// Route::get('/user/country', function(){
 
-foreach($country->posts as $post){
-	return $post->title;
+// $country = Country::find(2);
+
+// foreach($country->posts as $post){
+// 	return $post->title;
+// }
+// });
+
+/************ Polymorphic Relations ****************/
+
+Route::get('/user/photos', function(){
+
+$user = User::find(1);
+
+foreach($user->photos as $photo){
+	return $photo;
 }
+
+	
+});
+
+Route::get('/post/{id}/photos', function($id){
+
+$post = Post::find($id);
+
+foreach($post->photos as $photo){
+	echo $photo->path . "<br>";
+}
+
+	
 });
