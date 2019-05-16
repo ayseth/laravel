@@ -382,8 +382,21 @@ use App\Photo;
 
 /************ Polymorphic Relations Inverse****************/
 
-Route::get('/photo/{id}/post' , function($id){
- 	$photo = Photo::findOrFail($id);
+// Route::get('/photo/{id}/post' , function($id){
+//  	$photo = Photo::findOrFail($id);
 
- 	return $photo->imageable;
+//  	return $photo->imageable;
+// });
+
+/************ Polymorphic Many To Many****************/
+
+Route::get('/post/tag', function(){
+
+	$post = Post::find(1);
+
+	foreach($post->tags as $tag){
+		echo $tag->name;
+	}
 });
+
+

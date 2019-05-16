@@ -34,4 +34,9 @@ public function photos() {
 }
 
 
+public function tags(){
+	return $this->morphToMany('App\Tag', 'tagable');
+}
+
+
 }
