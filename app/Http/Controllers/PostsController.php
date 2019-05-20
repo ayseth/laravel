@@ -14,10 +14,19 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
+
+        /*******************************************************************************************************************************************
+        ADDED DUE TO EXCEPTION WARNING
+        **********************************************************************************************************************************************/
+              if(version_compare(PHP_VERSION, '7.2.0', '>=')) {
+    error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+    /*****************************************************************************************************************************************************/
+}
         //
-        return "working" . $id;
+        $posts = Post::all();
+        return view('posts.index', compact('posts'));     //compact ->takes any name of var and converts to var=> addts "$" to it
     }
 
     /**
@@ -27,6 +36,8 @@ class PostsController extends Controller
      */
     public function create()
     {
+
+
         //
         return view('posts.create');  //checked from php srtisan route:list
     }
@@ -52,7 +63,7 @@ class PostsController extends Controller
 
 
       Post::create($request->all());       // 1) first way
-        return "Done";
+      return redirect('/posts');
 
 
        // $input = $request->all();            // 2) Second way

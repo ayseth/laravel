@@ -19,6 +19,7 @@
 
 @stop
 
+@endsection
 @section('footer')
 
 <!-- <script>

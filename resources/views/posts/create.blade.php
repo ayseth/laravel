@@ -11,6 +11,6 @@
 	<input type="submit" name="submit">
 
 </form>
-
+@endsection
 
 @section('footer')
