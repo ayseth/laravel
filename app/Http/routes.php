@@ -417,7 +417,7 @@ use App\Tag;
 				CRUD MINI APPLICATION
 *************************************************************/
 
-Route::resource('/posts', 'PostsController')
+Route::resource('/posts', 'PostsController');
 
 
 

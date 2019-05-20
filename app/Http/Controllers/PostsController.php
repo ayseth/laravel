@@ -27,7 +27,7 @@ class PostsController extends Controller
     public function create()
     {
         //
-        return "I'm a method to create ";
+        return view('posts.create');  //checked from php srtisan route:list
     }
 
     /**
@@ -39,6 +39,10 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         //
+     //   return $request->all(); //to check the data input
+     //   return $request->get('title'); //returns title only 
+
+        return $request->title;    //same as above but here used as property
     }
 
     /**
