@@ -131,6 +131,24 @@ class PostsController extends Controller
     public function destroy($id)
     {
         //
+
+
+        /*******************************************************************************************************************************************
+        ADDED DUE TO EXCEPTION WARNING
+        **********************************************************************************************************************************************/
+              if(version_compare(PHP_VERSION, '7.2.0', '>=')) {
+                error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+}
+    /*****************************************************************************************************************************************************/
+
+    
+        // $post = Post::findOrFail($id);
+        // $post->delete();
+
+
+        $post = Post::whereId($id)->delete();       //summed up 2 lines in one
+
+        return redirect('/posts');
     }
 
 
