@@ -15,25 +15,24 @@
 	{!! Form::label('title', 'Title:' ) !!}
 	{!! Form::text('title', null, ['class'=>'form-control'])!!}
 
-
+ 
 	
 	{!! Form::submit('Update Post', ['class'=>'btn btn-info']) !!}
 
 
-</form>
+{!! Form::close() !!}
 
 
 
 
+{!! Form::open(['method'=>'DELETE', 'action'=>['PostsController@destroy', $post->id]]) !!} 
 
-<form method="post" action="/posts/{{$post->id}}">
-	
-<input type="hidden" name="_method" value="DELETE">
+
 {{csrf_field()}}
 
-<input type="submit" value="DELETE">
+{!! Form::submit('Delete Post', ['class'=>'btn btn-danger']) !!}
 
-</form>
+{!! Form::close() !!}
 @endsection
 
 @section('footer')
