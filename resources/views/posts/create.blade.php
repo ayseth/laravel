@@ -6,14 +6,24 @@
 <h1>CREATE</h1>
 
 <!-- <form method="post" action="/posts"> -->
-{!! Form::open() !!}       <!--using package--> 
+{!! Form::open(['method'=>'POST', 'action'=>'PostsController@store']) !!}       <!--using package--> 
 
-	<input type="text" name="title" placeholder="Enter title">
-	{{csrf_field()}}
+<div class="form-group">
 
-	<input type="submit" name="submit">
+	{!! Form::label('title', 'Title:' ) !!}
+	{!! Form::text('title', null, ['class'=>'form-control'])!!}
 
-</form>
+
+</div>
+<div class="form-group">
+
+	{!! Form::submit('Create Post', ['class'=>'btn btn-primary']) !!}
+
+
+</div>
+
+{!! Form::close() !!}
+
 @endsection
 
 @section('footer')
