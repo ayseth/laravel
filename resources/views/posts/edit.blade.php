@@ -7,16 +7,24 @@
 
 {{csrf_field()}}
 
-<form method="post" action="/posts/{{$post->id}}">
+<!-- <form method="post" action="/posts/{{$post->id}}"> -->
+{!! Form::model($post, ['method'=>'PATCH', 'action'=>['PostsController@update', $post->id]]) !!}       <!--using package--> 
 
-	<input type="hidden" name="_method" value="PUT">
+		{{csrf_field()}}
 
-	<input type="text" name="title" placeholder="Enter title" value="{{$post->title}}">
-	{{csrf_field()}}
+	{!! Form::label('title', 'Title:' ) !!}
+	{!! Form::text('title', null, ['class'=>'form-control'])!!}
 
-	<input type="submit" name="update">
+
+	
+	{!! Form::submit('Update Post', ['class'=>'btn btn-info']) !!}
+
 
 </form>
+
+
+
+
 
 <form method="post" action="/posts/{{$post->id}}">
 	
