@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Requests\CreatePostRequest;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -48,7 +49,7 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\CreatePostRequest $request)
     {
         
      //  return $request->all(); //to check the data input
@@ -63,12 +64,12 @@ class PostsController extends Controller
 
 
        /***********************VALIDATE FUNCTION****************/
-       $this->validate($request, [
+       // $this->validate($request, [
 
-        'title'=> 'required|max:4'
-        // 'content'=> 'required'        //, before next parameter
+       //  'title'=> 'required|max:4'
+       //  // 'content'=> 'required'        //, before next parameter
 
-       ]);
+       // ]);
 
 
        /********************************************************/
