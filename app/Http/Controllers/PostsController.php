@@ -97,14 +97,30 @@ class PostsController extends Controller
 
        // return $request->file('file');
 
-        $file = $request->file('file');
-        echo "<br>";
+        // $file = $request->file('file');
+        // echo "<br>";
 
-        echo $file->getClientOriginalName();    //gets real name of the pic
+        // echo $file->getClientOriginalName();    //gets real name of the pic
 
-        echo "<br>";
+        // echo "<br>";
 
-        echo $file->getClientSize();        //gets size of file
+        // echo $file->getClientSize();        //gets size of file
+
+       /***********************************************************************************************                 
+       persist or cmmit file to DB
+       ***********************************************************************************************/
+       $input = $request->all();
+
+       if($file = $request->file('file')){
+
+        $name = $file->getClientOriginalName();
+        $file->move('images', $name);     //images folder will be created if not available
+
+        $input['path'] = $name;      //path is col name
+
+
+       }
+       Post::create($input);
 
     }
 

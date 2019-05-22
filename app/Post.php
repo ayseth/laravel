@@ -19,7 +19,8 @@ protected $dates = ['deleted_at'];         //to treat this col as a timestamp co
 
 	protected $fillable = [
 		'title',
-		'content'
+		'content',
+		'path'
 
 
 
