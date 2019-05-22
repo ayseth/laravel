@@ -5,6 +5,7 @@ use App\User;
 use App\Country;
 use App\Photo;
 use App\Tag;
+use Carbon\Carbon;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -430,6 +431,28 @@ use App\Tag;
 // });      //middleware == security feature, not working anymore
 
 Route::resource('/posts', 'PostsController');
+
+Route::get('/dates', function(){
+
+$date  = new DateTime('+1 week');
+
+echo $date->format('m-d-Y');  //will echo date 
+
+echo "<br>";
+
+echo Carbon::now()->addDays(10)->diffForHumans();
+
+ echo '<br>';
+
+ echo Carbon::now()->subMonths(5)->diffForHumans();
+
+ echo '<br>';
+
+ echo Carbon::now()->yesterday()->diffForHumans();
+
+ //to install in an older project , on git type "composerrequire nesbot/carbon" then check composer doc on the site
+
+});
 
 
 
