@@ -39,4 +39,11 @@ public function tags(){
 }
 
 
+//latest is the name of the function, if it was ascending order, should be named scopeasc
+public static function scopeLatest($query){
+
+	return $query->orderBy('id', 'asc')->get();
+
+}
+
 }
