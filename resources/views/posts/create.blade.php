@@ -6,7 +6,9 @@
 <h1>CREATE</h1>
 
 <!-- <form method="post" action="/posts"> -->
-{!! Form::open(['method'=>'POST', 'action'=>'PostsController@store']) !!}       <!--using package--> 
+{!! Form::open(['method'=>'POST', 'action'=>'PostsController@store', 'files'=>true]) !!}       <!--using package--> 
+
+
 
 <div class="form-group">
 
@@ -15,6 +17,11 @@
 
 
 </div>
+<div class="form-group">
+	{!! Form::file('file', ['class'=>'form-control'])!!}
+
+</div>
+
 <div class="form-group">
 
 	{!! Form::submit('Create Post', ['class'=>'btn btn-primary']) !!}
