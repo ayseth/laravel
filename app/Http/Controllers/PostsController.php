@@ -77,8 +77,8 @@ class PostsController extends Controller
        /********************************************************/
 
 
-      Post::create($request->all());       // 1) first way
-      return redirect('/posts');
+      // Post::create($request->all());       // 1) first way
+      // return redirect('/posts');
 
 
        // $input = $request->all();            // 2) Second way
@@ -89,7 +89,25 @@ class PostsController extends Controller
        // $post = new Post;                    // 3) Third Way
        // $post->title = $request->title;
        // $post->save();                       // Ends Here <-
+
+
+        /***********************************************************************************************                 
+       retrieving file to DB
+       ***********************************************************************************************/
+
+       // return $request->file('file');
+
+        $file = $request->file('file');
+        echo "<br>";
+
+        echo $file->getClientOriginalName();    //gets real name of the pic
+
+        echo "<br>";
+
+        echo $file->getClientSize();        //gets size of file
+
     }
+
 
     /**
      * Display the specified resource.
