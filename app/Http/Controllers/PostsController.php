@@ -62,6 +62,16 @@ class PostsController extends Controller
        ***********************************************************************************************/
 
 
+       /***********************VALIDATE FUNCTION****************/
+       $this->validate($request, [
+
+        'title'=> 'required|max:50'
+        // 'content'=> 'required'        //, before next parameter
+
+       ]);
+       /********************************************************/
+
+
       Post::create($request->all());       // 1) first way
       return redirect('/posts');
 
