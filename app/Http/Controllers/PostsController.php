@@ -65,10 +65,12 @@ class PostsController extends Controller
        /***********************VALIDATE FUNCTION****************/
        $this->validate($request, [
 
-        'title'=> 'required|max:50'
+        'title'=> 'required|max:4'
         // 'content'=> 'required'        //, before next parameter
 
        ]);
+
+
        /********************************************************/
 
 

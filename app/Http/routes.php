@@ -417,6 +417,18 @@ use App\Tag;
 				CRUD MINI APPLICATION
 *************************************************************/
 
+
+
+// Route::group(['middleware'=>'web'], function(){
+
+	
+
+
+
+
+
+// });      //middleware == security feature, not working anymore
+
 Route::resource('/posts', 'PostsController');
 
 
