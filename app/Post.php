@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;     //to permanently del from tras
 
 class Post extends Model
 {
+
+	public $directory = "/images/";
 	use SoftDeletes;
     // 
   //  protected $table = 'posts'; //if table is not named posts,manually assign
@@ -44,6 +46,12 @@ public function tags(){
 public static function scopeLatest($query){
 
 	return $query->orderBy('id', 'asc')->get();
+
+}
+
+public function getPathAttribute($value) {
+
+return $this->directory . $value;
 
 }
 
